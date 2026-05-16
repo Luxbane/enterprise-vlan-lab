@@ -21,8 +21,8 @@ The topology demonstrates core networking concepts commonly used in enterprise e
 # ⚙️ Technologies Used
 
 * GNS3
-* Cisco IOSv
-* Cisco IOSvL2
+* Cisco Router
+* Cisco Switch
 * VPCS
 * VLAN
 * 802.1Q Trunking
