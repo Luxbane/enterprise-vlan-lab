@@ -85,7 +85,7 @@ The following tests were successfully performed:
 
 # 📸 Topology
 
-(I'll add later)
+images/Small Office.png
 
 ---
 
