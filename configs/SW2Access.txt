@@ -1,0 +1,64 @@
+! Device: SW2-Access
+! Role: Access Switch - IT Department
+! Project: GNS3 Enterprise VLAN Network
+
+version 15.2
+
+hostname SW2-Access
+
+spanning-tree mode pvst
+spanning-tree extend system-id
+
+!
+! ACCESS PORTS - VLAN 10 (IT)
+!
+
+interface GigabitEthernet0/1
+ description IT-PC-1
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ no shutdown
+
+interface GigabitEthernet0/2
+ description IT-PC-2
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ no shutdown
+
+interface GigabitEthernet0/3
+ description IT-PC-3
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ no shutdown
+
+interface GigabitEthernet1/0
+ description IT-PC-4
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ no shutdown
+
+interface GigabitEthernet1/1
+ description IT-PC-5
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ no shutdown
+
+interface GigabitEthernet1/2
+ description IT-PC-6
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ no shutdown
+
+interface GigabitEthernet1/3
+ description UPLINK_TO_CORE
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ no shutdown
+
+end

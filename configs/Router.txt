@@ -1,0 +1,92 @@
+! Device: Router
+! Role: Inter-VLAN Routing, DHCP, NAT, ACL
+! Project: GNS3 Enterprise VLAN Network
+
+version 15.9
+
+hostname Router
+
+no ip domain lookup
+ip cef
+
+!
+! DHCP CONFIGURATION
+!
+
+ip dhcp pool VLAN10
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ dns-server 8.8.8.8
+
+ip dhcp pool VLAN20
+ network 192.168.20.0 255.255.255.0
+ default-router 192.168.20.1
+ dns-server 8.8.8.8
+
+ip dhcp pool VLAN30
+ network 192.168.30.0 255.255.255.0
+ default-router 192.168.30.1
+ dns-server 8.8.8.8
+
+!
+! WAN INTERFACE
+!
+
+interface GigabitEthernet0/0
+ ip address dhcp
+ ip nat outside
+ no shutdown
+
+!
+! TRUNK INTERFACE
+!
+
+interface GigabitEthernet0/1
+ no ip address
+ no shutdown
+
+!
+! VLAN 10 - IT
+!
+
+interface GigabitEthernet0/1.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.1 255.255.255.0
+ ip nat inside
+
+!
+! VLAN 20 - HR
+!
+
+interface GigabitEthernet0/1.20
+ encapsulation dot1Q 20
+ ip address 192.168.20.1 255.255.255.0
+ ip access-group BLOCK_HR_TO_IT in
+ ip nat inside
+
+!
+! VLAN 30 - FINANCE
+!
+
+interface GigabitEthernet0/1.30
+ encapsulation dot1Q 30
+ ip address 192.168.30.1 255.255.255.0
+ ip nat inside
+
+!
+! NAT CONFIGURATION
+!
+
+access-list 1 permit 192.168.0.0 0.0.255.255
+
+ip nat inside source list 1 interface GigabitEthernet0/0 overload
+
+!
+! ACL CONFIGURATION
+!
+
+ip access-list extended BLOCK_HR_TO_IT
+ deny ip 192.168.20.0 0.0.0.255 192.168.10.0 0.0.0.255
+ permit ip any any
+
+end

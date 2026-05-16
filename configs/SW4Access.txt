@@ -1,0 +1,47 @@
+! Device: SW4-Access
+! Role: Access Switch - Finance Department
+! Project: GNS3 Enterprise VLAN Network
+
+version 15.2
+
+hostname SW4-Access
+
+spanning-tree mode pvst
+spanning-tree extend system-id
+
+!
+! ACCESS PORTS - VLAN 30 (FINANCE)
+!
+
+interface GigabitEthernet0/1
+ description FINANCE-PC-1
+ switchport mode access
+ switchport access vlan 30
+ spanning-tree portfast
+ no shutdown
+
+interface GigabitEthernet0/2
+ description FINANCE-PC-2
+ switchport mode access
+ switchport access vlan 30
+ spanning-tree portfast
+ no shutdown
+
+interface GigabitEthernet0/3
+ description FINANCE-PC-3
+ switchport mode access
+ switchport access vlan 30
+ spanning-tree portfast
+ no shutdown
+
+!
+! UPLINK TO CORE SWITCH
+!
+
+interface GigabitEthernet1/0
+ description UPLINK_TO_CORE
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ no shutdown
+
+end
