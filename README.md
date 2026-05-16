@@ -85,7 +85,7 @@ The following tests were successfully performed:
 
 # 📸 Topology
 
-(Add your topology screenshot here)
+(I'll add later)
 
 ---
 
