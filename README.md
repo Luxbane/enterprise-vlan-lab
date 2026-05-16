@@ -85,7 +85,7 @@ The following tests were successfully performed:
 
 # 📸 Topology
 
-images/Small Office.png
+![Topology](images/Small%20Office.png)
 
 ---
 
@@ -100,10 +100,10 @@ configs/
 └── SW4Access.txt
 
 images/
-└── topology.png
+└── Small Office.png
 
 project-files/
-└── topology.gns3
+└── Small Office.gns3
 ```
 
 ---
