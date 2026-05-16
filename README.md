@@ -86,6 +86,9 @@ The following tests were successfully performed:
 # 📸 Topology
 
 ![Topology](images/Small%20Office.png)
+![Topology](images/SS1.png)
+![Topology](images/SS2.png)
+![Topology](images/SS3.png)
 
 ---
 
